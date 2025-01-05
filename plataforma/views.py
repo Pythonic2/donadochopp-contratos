@@ -25,7 +25,7 @@ class EventoCreateView(CreateView):
             for p in doc.paragraphs:
                 for run in p.runs:  # Preserva o estilo de cada parte do parágrafo
                     run.text = run.text.replace('{{nome}}', nome)
-                    run.text = run.text.replace('{{cpf}}', cpf)  # Corrigido de {{cpf_ed}} para {{cpf}}
+                    run.text = run.text.replace('{{cpf_ed}}', cpf)  # Corrigido de {{cpf_ed}} para {{cpf}}
                     run.text = run.text.replace('{{email}}', email)
                     run.text = run.text.replace('{{endereco}}', endereco_residencial)
                     run.text = run.text.replace('{{endereco_evento}}', endereco_evento)
