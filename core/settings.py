@@ -25,9 +25,14 @@ SECRET_KEY = 'django-insecure-s_2c$ug%eytil7l+&s9bq0b589#+ud-%v*1(msh@0*3*54dcfr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['contratosdonadochopp.cloudboosterlab.org']
+ALLOWED_HOSTS = ['ontratosdonadochopp.cloudboosterlab.org','localhost','127.0.0.1', '*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://ontratosdonadochopp.cloudboosterlab.org',
+]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
