@@ -1,5 +1,18 @@
-<ul>
-    {% for cliente in clientes%}
-        <li>{{cliente.nome_completo}} <a href="{% url 'criar-evento' cliente.id%}">criar evento</a></li>
-    {%endfor%}
-</ul>
+
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes%}
+      <tr>
+        <td>{{cliente.nome_completo}}</td>
+        <td><a href="{% url 'criar-evento' cliente.id%}">criar evento</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>

@@ -9,5 +9,7 @@ urlpatterns = [
     path('criar-evento/<int:id_cliente>/', EventoCreateView.as_view(), name='criar-evento'),
     path('add-produto/<int:id_evento>/', AddProduto.as_view(), name='add-produto'),
     path('finalizar-contrato/<int:id_evento>/', finalizar_contrato, name='finalizar-contrato'),
+    path('cadastrar-cliente/', CreateCliente.as_view(), name='cadastrar-cliente'),
+    path('cadastrar-produto/', CreateProduto.as_view(), name='cadastrar-produto'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -17,12 +17,14 @@ class ProdutoForm(forms.ModelForm):
     disponivel = forms.BooleanField(
         widget=forms.CheckboxInput(
             attrs={
-                "class": "form-check-input",
+                "class": "form-check-input"  # Classe Bootstrap para checkbox (opcional)
             }
         ),
-        label="Disponível",
-        required=False
+        required=True,  # Define que o campo é obrigatório
+        label="Disponível: ",  # Texto exibido ao lado do checkbox
+        initial=True  # Define o valor inicial como marcado
     )
+
     valor = forms.DecimalField(
         widget=forms.NumberInput(
             attrs={

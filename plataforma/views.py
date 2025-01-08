@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 # from .models import , ContratoAssinado
-from .forms import EventoForm,EventoProdutoForm
+from .forms import EventoForm,EventoProdutoForm,ClienteForm, ProdutoForm
 from docx import Document
 import os
 import subprocess
@@ -23,22 +23,6 @@ def get_cliente(request):
         else:
             clientes = None
     return render(request,'parciais/clientes.html',{'clientes':clientes})
-
-
-
-
-# def converter_para_pdf(caminho_docx):
-#     """Converte um arquivo .docx para .pdf usando LibreOffice"""
-#     caminho_pdf = caminho_docx.replace('.docx', '.pdf')
-#     try:
-#         subprocess.run(
-#             ['libreoffice', '--headless', '--convert-to', 'pdf', '--outdir', os.path.dirname(caminho_docx), caminho_docx],
-#             check=True
-#         )
-#         return caminho_pdf if os.path.exists(caminho_pdf) else None
-#     except subprocess.CalledProcessError as e:
-#         print(f"Erro ao converter para PDF: {e}")
-#         return None
 
 
 class EventoCreateView(CreateView):
@@ -94,8 +78,6 @@ class AddProduto(CreateView):
         form.save()
         return redirect(reverse('add-produto', kwargs={'id_evento': self.id_evento}))
 
-import os
-from docx import Document
 
 def gerar_contrato(contrato_padrao, cliente, evento, produtos):
     """
@@ -185,4 +167,22 @@ def finalizar_contrato(request, id_evento):
     return redirect('home')
 
 
+class CreateCliente(CreateView):
+    model = Cliente
+    form_class = ClienteForm
+    template_name = 'criar_cliente.html'
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('home')
+
+
+class CreateProduto(CreateView):
+    model = Produto
+    form_class = ProdutoForm
+    template_name = 'criar_produto.html'
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('home')
 
