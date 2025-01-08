@@ -6,9 +6,9 @@ services:
     pull_policy: build
     restart: always
     ports:
-      - "8001:8001"
-    env_file:
-      - stack.env
+      - "8002:8002"
+    # env_file:
+    #   - stack.env
     networks:
       - pi_default
     volumes:
