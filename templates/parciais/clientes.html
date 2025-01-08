@@ -1,0 +1,5 @@
+<ul>
+    {% for cliente in clientes%}
+        <li>{{cliente.nome_completo}} <a href="{% url 'criar-evento' cliente.id%}">criar evento</a></li>
+    {%endfor%}
+</ul>

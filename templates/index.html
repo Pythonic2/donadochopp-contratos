@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+<h3 class="text-center"> {%block 'title'%}Consulta Usuario{%endblock%}</h3>
+
+{% block 'content'%}
+
+    <div class="col-md-6">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="termo" hx-get="{% url 'get-cliente' %}" hx-target="#clientes" hx-trigger="keyup">
+              </form>
+            </div>
+          </nav>
+          <div id="clientes">
+            {% include 'parciais/clientes.html'%}
+          </div>
+          
+    </div>
+
+    <div class="form-group text-center" style="margin-top: 10%; margin-bottom: -10%;"> 
+      <button type="submit" class="btn btn-danger" style="margin-bottom: 10%;">Cadastrar Usuario</button>
+  </div>
+{%endblock%}

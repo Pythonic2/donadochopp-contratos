@@ -1,0 +1,22 @@
+services:
+  contratosdonadochopp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build
+    restart: always
+    ports:
+      - "8001:8001"
+    env_file:
+      - stack.env
+    networks:
+      - pi_default
+    volumes:
+      - contratos_dona_do_chopp_media:/app/media
+
+volumes:
+  contratos_dona_do_chopp_media:
+
+networks:
+  pi_default:
+    external: true

@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+<h3 class="text-center"> {%block 'title'%}Cadastro de Evento {%endblock%}</h3>
+
+{% block 'content'%}
+
+    <div class="col-md-6">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.endereco_evento.label_tag }}
+                {{ form.endereco_evento }}
+            </div>
+            <div class="mb-3">
+                {{ form.tipo_evento.label_tag }}
+                {{ form.tipo_evento }}
+            </div>
+            <div class="mb-3">
+                {{ form.bomba_opcao.label_tag }}
+                {{ form.bomba_opcao }}
+            </div>
+            <div class="mb-3">
+                {{ form.data.label_tag }}
+                {{ form.data }}
+            </div>
+            <div class="mb-3">
+                {{ form.hora.label_tag }}
+                {{ form.hora }}
+            </div>
+            <div class="mb-3">
+                {{ form.forma_pagamento.label_tag }}
+                {{ form.forma_pagamento }}
+            </div>
+            <div class="mb-3">
+                {{ form.observacoes.label_tag }}
+                {{ form.observacoes }}
+            </div>
+            <div class="form-check mb-3">
+                {{ form.profissional }}
+                <label class="form-check-label" for="id_profissional">
+                    {{ form.profissional.label }}
+                </label>
+            </div>
+            <button type="submit" class="btn btn-danger">Cadastrar Evento</button>
+        </form>
+        
+        
+    </div>
+
+
+{%endblock%}

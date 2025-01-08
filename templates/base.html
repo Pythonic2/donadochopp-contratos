@@ -1,0 +1,25 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% include 'parciais/head.html'%}
+</head>
+<body>
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="{% static '/img/logo.jpeg' %}" alt="dona_do_chopp"/>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <h3 class="text-center">{% block 'title'%} {%endblock%}</h3>
+            <div class="row">
+        
+                    {% block 'content'%}
+                    
+                    {%endblock%}
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
