@@ -6,12 +6,9 @@
     <div class="col-md-6">
         <form action="" method="POST">
             {% csrf_token %}
-            <div class="mb-3">
-                {{ form.endereco_evento.label_tag }}
-                {{ form.endereco_evento }}
-            </div>
+            {{ form }}
             <div class="form-group d-flex justify-content-center" style="width: 100%; margin-top: 10px;">
-                <button type="submit" class="btn btn-danger mx-2 w-50">Cadastrar Evento</button>
+                <button type="submit" class="btn btn-danger mx-2 w-50">Inserir Produto</button>
                
                 <a class="btn btn-success mx-2 w-50" role="button" href="{% url 'finalizar-contrato' id_evento %}">
                     Baixar Contrato
